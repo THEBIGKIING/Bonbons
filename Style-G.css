@@ -1,0 +1,268 @@
+:root {
+    --main-text-color: #a53860;
+    --bg-color: #f9fbf2;
+    --darken-color: #450920;
+    --harmony: 5%
+}
+
+body {
+    text-align: center;
+    font-family: 'DM Serif Display';
+    font-size: 1.2em;
+    font: bold 1em;
+    background: var(--bg-color);
+    margin: 0px;
+    color: var(--darken-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    font: bold 2.5em 'Limelight';
+    padding: 0px;
+    border-radius: 0px;
+    margin-bottom: 0px;
+    text-shadow: 2px 2px 4px var(--darken-color);
+    max-width: 950px;
+    min-width: 350px;
+    margin: auto;
+    
+}
+
+intro {
+    text-align: center;
+    color: var(--darken-color);
+    font: bold 1.2em 'DM Serif Display';
+    margin: var(--harmony);
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between; /* Sépare les deux groupes (gauche et droite) */
+    align-items: center;
+    background-color: var(--main-text-color);
+    padding: 10px 20px; /* Ajustez les valeurs pour un espacement uniforme */
+    margin: 0; /* Supprime les marges externes */
+    border: none; /* Supprime les bordures */
+    overflow: hidden; /* Empêche les débordements */
+}
+.top-bar-center, .top-bar-left, .top-bar-right {
+    margin: 20px; /* Supprime les marges externes */
+    padding: 0; /* Supprime les paddings internes */
+}
+/* Couleurs de la barre supérieure */
+.top-bar-center h1 {
+    color: var(--bg-color);
+    position: static; /* <-- retire le positionnement absolu */
+    width: 0; /* Permet au titre de s'ajuster à son contenu */
+    transform: none;
+    margin: 0 auto;
+    font-size: 1.5em; /* ajuste la taille si besoin */
+    padding: 0px ; /* ajuste le padding si besoin */
+    /* tu peux ajuster le padding ou la taille ici */
+}
+
+/* Uniformisez la taille des icônes et des images */
+.top-bar img {
+    height: 30px; /* Ajustez la hauteur pour qu'elle soit cohérente */
+    width: auto; /* Conservez les proportions */
+    vertical-align: middle; /* Alignez verticalement les images */
+}
+
+/* Classe pour déplacer l'icône du milieu à droite */
+.top-bar .move-to-right {
+    margin-left: 10px; /* Pousse l'icône vers la droite */
+}
+
+/* Conteneur pour les éléments de gauche */
+.top-bar-left {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Espacement entre les éléments */
+}
+
+/* Conteneur pour les éléments de droite */
+.top-bar-right {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Espacement entre les éléments */
+}
+
+/* Logo */
+.top-bar .logo {
+    height: 25px; /* Ajustez la hauteur */
+    width: auto; /* Conservez les proportions */
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+}
+
+.search-icon {
+    height: 30px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.search-bar {
+    position: absolute;
+    right: 0;
+    width: 0;
+    padding: 5px;
+    border: none;
+    border-radius: 15px;
+    background-color: var(--darken-color);
+    color: var(--bg-color);
+    opacity: 0;
+    transition: width 0.3s ease, opacity 0.3s ease;
+    z-index: 10;
+}
+
+.search-container:hover .search-icon,
+.search-container.active .search-icon {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.search-container.active .search-bar,
+.search-container:hover .search-bar {
+    width: 150px;
+    opacity: 1;
+}
+
+search-container:hover .search-icon {
+    transform: scale(1.2);
+}
+
+.dropdown {
+    position: absolute; /* Position relative pour que le menu soit positionné par rapport au bouton */
+}
+
+.dropdown-button {
+    background-color: var(--bg-color); /* Couleur de fond similaire à .nav-box */
+    color: var(--main-text-color); /* Couleur du texte */
+    padding: 10px 20px; /* Espacement interne */
+    border: none; /* Supprime les bordures */
+    border-radius: 10px; /* Coins arrondis similaires */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Ombre pour un effet de profondeur */
+    cursor: pointer; /* Change le curseur pour indiquer un bouton cliquable */
+    font-size: 16px; /* Taille du texte */
+    font-weight: bold; /* Texte en gras */
+    transition: background-color 0.3s ease; /* Transition pour un effet au survol */
+}
+
+.dropdown-menu a:hover {
+    color: var(--darken-color); /* Change la couleur du texte au survol */
+}
+
+/* Menu déroulant */
+.dropdown-menu {
+    display: none; /* Masque le menu par défaut */
+    position: absolute; /* Positionne le menu par rapport au parent .dropdown */
+    top: 100px; /* Place le menu juste en dessous du bouton */
+    right: 20px; /* Aligne le menu à gauche */
+    background-color: var(--main-text-color); /* Couleur de fond du menu */
+    min-width: 150px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    z-index: 1000;
+    padding: 10px 0;
+    opacity: 1; /* Rendre le menu visible par défaut */
+}
+
+
+.dropdown-menu.visible {
+    display: block; /* Affiche le menu lorsqu'il est visible */
+}
+
+.dropdown-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown-menu li {
+    padding: 10px 20px;
+}
+
+.dropdown-menu a {
+    color: var(--bg-color); /* Couleur du texte */
+    text-decoration: none;
+    display: block;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+
+.dropdown:hover .dropdown-menu {
+    display: block; /* Affiche le menu au survol */
+}
+
+/* Styles pour l'icône du menu */
+.menu-icon {
+    height: 30px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.menu-icon:hover {
+    transform: scale(1.1); /* Agrandit légèrement l'icône au survol */
+}
+
+/* Animation pour l'apparition */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Décale légèrement vers le bas */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Position normale */
+    }
+}
+
+/* Vidéo de fond */
+#bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100vw;
+    min-height: 100vh;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    object-fit: cover;
+    opacity: 0.6; /* Ajuste l’opacité si besoin */
+    pointer-events: none; /* Pour que la vidéo ne bloque pas les clics */
+}
+
+
+
+footer {
+    background-color: var(--main-text-color);
+    color: var(--bg-color);
+    padding: 20px 0px;
+    text-align: center;
+    font: 1em 'DM Serif Display';
+    position: relative;
+    bottom: 0;
+    margin-top: auto;
+}
+@media (max-width: 800px) {
+    .top-bar {
+        padding: 5px 5vw;   /* Réduit le padding et l’adapte à la largeur de l’écran */
+    }
+    .top-bar-center, .top-bar-left, .top-bar-right {
+        margin: 5px;        /* Réduit les marges internes */
+    }
+    .top-bar-center h1 {
+        font-size: 1em;     /* Réduit la taille du titre si besoin */
+        min-width: 50vw;    /* Ajuste la largeur minimale pour qu'il s'adapte à l'écran */
+        max-width: 90vw;
+        opacity: 0; /* Ajoute cette ligne pour masquer le h1 */
+    }
+}
