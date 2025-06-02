@@ -1,13 +1,15 @@
 :root {
-    --main-text-color: #DC965A;
-    --bg-color: #f9fbf2;
-    --darken-color: #22140c;
-    --harmony: 5%
+    --main-text-color: #E9A5F1;
+    --bg-color: #FED2E2;
+    --darken-color: #f187bc;
+    --harmony: 5%;
+    --main-font: 'DM Serif Display', serif;
+    --secondary-font: 'Fredoka', cursive;
 }
 
 body {
- 
-    font-family: 'DM Serif Display';
+
+    font-family: var(--main-font);
     font-size: 1.2em;
     font: bold 1em;
     background: var(--bg-color);
@@ -19,7 +21,7 @@ body {
 }
 
 h1 {
-    font: bold 2.5em 'Limelight';
+    font: bold 2.5em var(--secondary-font);
     padding: 0px;
     border-radius: 0px;
     margin-bottom: 0px;
@@ -31,7 +33,7 @@ h1 {
     
 }
 h2 {
-    font: bold 1.5em 'Limelight';
+    font: bold 1.5em var(--secondary-font);
     color: var(--main-text-color);
     margin: 20px 0;
 }
@@ -39,7 +41,7 @@ h2 {
 intro {
     text-align: center;
     color: var(--darken-color);
-    font: bold 1.2em 'DM Serif Display';
+    font: bold 1.2em var(--main-font);
     margin: var(--harmony);
 }
 
@@ -270,7 +272,7 @@ footer {
     color: var(--bg-color);
     padding: 20px 0px;
     text-align: center;
-    font: 1em 'DM Serif Display';
+    font: 1em var(--main-font);
     position: relative;
     bottom: 0;
     margin-top: auto;
